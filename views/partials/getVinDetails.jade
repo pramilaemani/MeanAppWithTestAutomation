@@ -1,6 +1,23 @@
 h3 Vin Details Page
-label(for='title') Enter Campaign Id: 
-input(ng-model='form.title', name='title')
+label(for='campid') Enter Campaign Id: 
+input(ng-model='form.campid', name='campid')
 p
   button(ng-click='getVinDetails()') Get Vin Details
   
+  div(VinDetailsTable)
+  table
+    thead
+        th VIN_ID
+        th CAMPAIGN_ID
+        th MODEL_ID
+        th VIN_CAMPAIGN_STATUS        
+    tbody(ng-repeat='vindet in selVinDetails track by $index')
+        tr
+            td
+                {{vindet.VIN_ID}}
+            td
+                {{vindet.CAMPAIGN_ID}}
+            td
+                {{vindet.MODEL_ID}}
+            td
+                {{vindet.VIN_CAMPAIGN_STATUS}}

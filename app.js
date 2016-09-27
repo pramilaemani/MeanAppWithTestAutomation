@@ -51,7 +51,10 @@ app.get('/partials/:name', routes.partials);
 
 // JSON API
 app.get('/api/name', api.name);
-app.get('/api/allVinCampDetails', api.allVinCampDetails);
+app.get('/api/allVinDetails', api.allVinDetails);
+app.get('/api/allCampDetails', api.allCampDetails);
+app.get('/api/getSelCampDetails/:vinid', api.getSelCampDetails);
+app.get('/api/getSelVinDetails/:campid', api.getSelVinDetails);
 
 // redirect all others to the index (HTML5 history)
 app.get('*', routes.index);

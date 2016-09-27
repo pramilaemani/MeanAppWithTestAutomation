@@ -21,21 +21,44 @@ angular.module('myApp.controllers', ['ngRoute']).
     console.log("in the controller");
     $http({
       method: 'GET',
-      url: '/api/vinDetails'
+      url: '/api/allVinDetails'
     }).
     success(function (data, status, headers, config) {
-      $scope.vinDetails = data.vinDetails;      
+      $scope.allVinDetails = data.allVinDetails;      
     }).
     error(function (data, status, headers, config) {
-      $scope.vinDetails = 'Error!';
+      $scope.allVinDetails = 'Error!';
     });
 
+    $http({
+      method: 'GET',
+      url: '/api/allCampDetails'
+    }).
+    success(function (data, status, headers, config) {
+      $scope.allCampDetails = data.allCampDetails;      
+    }).
+    error(function (data, status, headers, config) {
+      $scope.allCampDetails = 'Error!';
+    });
   }]).
-  controller('CampDetCtrl', function ($scope) {
-    // write Ctrl here
+  controller('CampDetCtrl', ['$scope', '$http', '$routeParams','$location', function ($scope, $http, $routeParams,$location) {    
+    $scope.getCampDetails = function(){
+      alert($scope.form.vinid);      
+      $http.get('/api/getSelCampDetails/'+$scope.form.vinid).
+      success(function(data){
+        $location.path('/getCampDetails');
+        $scope.selCampDetails = data.selCampDetails;
+      });
+    };    
+  }]).
+  controller('VinDetCtrl', ['$scope', '$http', '$routeParams','$location', function ($scope, $http, $routeParams,$location) {
+    $scope.getVinDetails = function(){
+      alert($scope.form.campid);      
+      $http.get('/api/getSelVinDetails/'+$scope.form.campid).
+      success(function(data){
+        $location.path('/getVinDetails');
+        $scope.selVinDetails = data.selVinDetails;
+      });
+    }; 
 
-  }).
-  controller('VinDetCtrl', function ($scope) {
-    // write Ctrl here
-
-  });
+  }]);

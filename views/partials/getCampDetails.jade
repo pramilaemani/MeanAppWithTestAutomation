@@ -1,5 +1,26 @@
-h3	Campaign Details Page
-label(for='title') Enter Vin Id: 
-input(ng-model='form.title', name='title')
+h3  Campaign Details Page
+label(for='vinid') Enter Vin Id: 
+input(ng-model='form.vinid', name='vinid')
 p
   button(ng-click='getCampDetails()') Get Campaign Details
+
+  div(CampaignDetailsTable)
+  table
+    thead
+        th CAMPAIGN_TYPE_NO
+        th CAMPAIGN_ID
+        th CAMPAIGN_NAME
+        th VIN_ID
+        th RESTRICTED_CAMPAIGN
+    tbody(ng-repeat='campdet in selCampDetails track by $index')
+        tr
+            td
+                {{campdet.CAMPAIGN_TYPE_NO}}
+            td
+                {{campdet.CAMPAIGN_ID}}
+            td
+                {{campdet.CAMPAIGN_NAME}}
+            td
+                {{campdet.VIN_ID}}
+            td
+                {{campdet.RESTRICTED_CAMPAIGN}}

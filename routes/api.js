@@ -19,34 +19,54 @@ var errorLogger = function (message) {
 /*
  * Serve JSON to our AngularJS client
  */
+ exports.name = function (req, res) {
+  res.json({
+    name: 'Vin Camp Application'
+  });
+};
 
 //GET Vindetails from DB
 exports.allVinDetails = function(req, res){
-logger.trace("in the api");
-logger.trace(req.db);
 var db = req.db;
-logger.trace (db);
 var collection = db.get("vindetscollection");
 logger.trace (collection);       
  collection.find({}, function(e,docs){
-  req.json({allVinDetails : docs});
- 	/*res.json({
-    allVinDetails: docs
-  });*/
+   	res.json({allVinDetails: docs});
  });
 };
 
 //GET Campdetails from DB
 exports.allCampDetails = function(req, res){
-logger.trace("in the api");
 var db = req.db;
-logger.trace (db);
 var collection = db.get("campdetcollection");
 logger.trace (collection);       
  collection.find({}, function(e,docs){
-  req.json({allCampDetails : docs});
-  /*res.json({
-    allCampDetails: docs
-  });*/
+  res.json({allCampDetails: docs});
  });
+};
+
+exports.getSelCampDetails = function(req,res){
+  logger.trace("in getSelCampDetails");
+  var db = req.db;
+  var vinid = req.params.vinid;
+  logger.trace("Entered vinid is "+vinid);
+  
+  var collection = db.get("campdetcollection");
+    collection.find({'VIN_ID':vinid}, function(e, docs){
+      res.json({selCampDetails:docs});
+      console.log(docs);
+    });
+};
+
+exports.getSelVinDetails = function(req,res){
+  logger.trace("in getSelVinDetails");
+  var db = req.db;
+  var campid = req.params.campid;
+  logger.trace("Entered campid is "+campid);
+  
+  var collection = db.get("vindetscollection");
+    collection.find({'CAMPAIGN_ID':campid}, function(e, docs){
+      res.json({selVinDetails:docs});
+      console.log(docs);
+    });
 };
