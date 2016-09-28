@@ -4,8 +4,8 @@ input(ng-model='form.campid', name='campid')
 p
   button(ng-click='getVinDetails()') Get Vin Details
   
-  div(VinDetailsTable)
-  table
+  div(ng-controller='VinDetCtrl')
+  table(VinDetailsTable)
     thead
         th VIN_ID
         th CAMPAIGN_ID

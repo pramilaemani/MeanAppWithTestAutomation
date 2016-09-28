@@ -4,8 +4,8 @@ input(ng-model='form.vinid', name='vinid')
 p
   button(ng-click='getCampDetails()') Get Campaign Details
 
-  div(CampaignDetailsTable)
-  table
+  div(ng-controller='CampDetCtrl')
+  table(CampaignDetailsTable)
     thead
         th CAMPAIGN_TYPE_NO
         th CAMPAIGN_ID
