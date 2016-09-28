@@ -1,8 +1,8 @@
 h3  Campaign Details Page
 label(for='vinid') Enter Vin Id: 
-input(ng-model='form.vinid', name='vinid')
+input#inputVinId(ng-model='form.vinid', name='vinid')
 p
-  button(ng-click='getCampDetails()') Get Campaign Details
+  button#btnSubmit(ng-click='getCampDetails()') Get Campaign Details
 
   div(ng-controller='CampDetCtrl')
   table(CampaignDetailsTable)
