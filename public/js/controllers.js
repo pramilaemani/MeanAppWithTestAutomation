@@ -44,7 +44,7 @@ angular.module('myApp.controllers', ['ngRoute']).
   controller('CampDetCtrl', ['$scope', '$http', '$routeParams','$location', function ($scope, $http, $routeParams,$location) {    
     
     $scope.getCampDetails = function(){ 
-    alert("Please enter the VIN_ID");     
+         
       $http.get('/api/getSelCampDetails/'+$scope.form.vinid).
       success(function(data){
         $location.path('/getCampDetails');
@@ -55,7 +55,7 @@ angular.module('myApp.controllers', ['ngRoute']).
   controller('VinDetCtrl', ['$scope', '$http', '$routeParams','$location', function ($scope, $http, $routeParams,$location) {
     
     $scope.getVinDetails = function(){
-      alert("Please enter the campaign ID");
+    
       $http.get('/api/getSelVinDetails/'+$scope.form.campid).
       success(function(data){
         $location.path('/getVinDetails');

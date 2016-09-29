@@ -1,5 +1,6 @@
 var protractor = require('protractor');
 path = require('path');
+var driver = require('selenium-webdriver');
 
 //fetch data from the excel in order to provide data to the test cases
 cellFromXLS = function (cellId) {
@@ -20,30 +21,72 @@ cellFromXLS = function (cellId) {
     return value;
 };
 
+function waitForElementToBePresent(element){
+browser.wait(function () {
+return element.isPresent();
+},60000);
+
+browser.wait(function () {
+return element.isDisplayed();
+},60000);
+};
+
 describe('Mean stack POC Test', function() {
-         beforeEach(function() {
-           browser.get('http://localhost:3000/');
+         browser.get('http://localhost:3000/');
             // ptor = protractor.getInstance();
-           });
+         
+
   
         it('should click on the Campaign Details Link', function() {
                element(by.xpath('/html/body/div/ul/li[2]/a')).click();
            expect(element(by.xpath('//h3')).getText()).toEqual('Campaign Details Page');
            });
         it('should return campaigns for the vinid entered', function(){
+          browser.get('http://localhost:3000/getCampDetails');
           var vinid = cellFromXLS('B2');
-                element(by.id('inputVinId').sendKeys(vinid));
-                button = element(by.id('btnSubmit'));
-                button.click();
-                results = element.all(by.repeater('campdet in selCampDetails'));
-                expect(results.count()).toEqual(2);
-                element(by.model('form.vinid')).clear();
+          var input = element(by.xpath(".//*[@id='inputVinId']"));
+          var button = element(by.id('btnSubmit'));
+              input.sendKeys(vinid);
+              button.click();
+              results = element.all(by.repeater('campdet in selCampDetails'));
+              expect(results.count()).toEqual(2);
+              element(by.model('form.vinid')).clear();          
+        });
+        //Negative test case: Querying for Campaigns associated to VINID that does not exist
+        it('should not return any campaign ids', function(){
+          browser.get('http://localhost:3000/getCampDetails');
+          
+          var vinid = cellFromXLS('B3');
+          var input = element(by.xpath(".//*[@id='inputVinId']"));
+          var button = element(by.id('btnSubmit'));
+              input.sendKeys(vinid);
+              button.click();
+              results = element.all(by.repeater('campdet in selCampDetails'));
+              expect(results.count()).toEqual(0);//No results
         });
         it('should click on the Vin Details Link', function() {
                element(by.xpath('/html/body/div/ul/li[3]/a')).click();
            expect(element(by.xpath('//h3')).getText()).toEqual('Vin Details Page');
            });                     
-        it('should return Vins for the vinid entered', function(){
-                
+        it('should return Vins for the campid entered', function(){
+          browser.get('http://localhost:3000/getVinDetails');
+          var campid = cellFromXLS('C4');
+          var input  = element(by.model("form.campid"));
+          var button = element(by.id('btnSubmit'));
+              input.sendKeys(campid);
+              button.click();
+              results = element.all(by.repeater('vindet in selVinDetails'));
+              expect(results.count()).toEqual(2);
+        });
+        //Negative test case: Querying for VINS associated to CAMPAIGN that does not exist
+        it('should not return any Vins for the campid entered', function(){
+          browser.get('http://localhost:3000/getVinDetails');
+          var campid = cellFromXLS('C5');
+          var input  = element(by.model("form.campid"));
+          var button = element(by.id('btnSubmit'));
+              input.sendKeys(campid);
+              button.click();
+              results = element.all(by.repeater('vindet in selVinDetails'));
+              expect(results.count()).toEqual(0);
         });
 });
