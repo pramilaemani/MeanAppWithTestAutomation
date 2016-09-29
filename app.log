@@ -35471,3 +35471,215 @@
 [2016-09-29 13:53:39.647] [TRACE] app - Entered campid is RX8
 [2016-09-29 13:53:40.693] [TRACE] app - in getSelVinDetails
 [2016-09-29 13:53:40.694] [TRACE] app - Entered campid is AB9
+[2016-09-29 17:12:35.483] [TRACE] app - Collection {
+  manager: 
+   Manager {
+     driver: 
+      SkinClass {
+        _construct_args: [],
+        _native: [Object],
+        _emitter: [Object],
+        _state: 2,
+        _connect_args: [Object] },
+     helper: { toObjectID: [Function], isObjectID: [Function], id: [Object] },
+     collections: { vindetscollection: [Circular] },
+     options: { safe: true } },
+  driver: 
+   SkinClass {
+     _construct_args: [],
+     _native: 
+      Db {
+        domain: null,
+        _events: {},
+        _eventsCount: 0,
+        _maxListeners: undefined,
+        databaseName: 'prototypeDB',
+        serverConfig: [Object],
+        options: [Object],
+        _applicationClosed: false,
+        slaveOk: false,
+        bufferMaxEntries: -1,
+        native_parser: true,
+        bsonLib: [Object],
+        bson: [Object],
+        bson_deserializer: [Object],
+        bson_serializer: [Object],
+        _state: 'connected',
+        pkFactory: [Object],
+        forceServerObjectId: false,
+        safe: false,
+        notReplied: {},
+        isInitializing: true,
+        openCalled: true,
+        commands: [],
+        logger: [Object],
+        tag: 1475149328465,
+        eventHandlers: [Object],
+        serializeFunctions: false,
+        raw: false,
+        recordQueryStats: false,
+        retryMiliSeconds: 1000,
+        numberOfRetries: 60,
+        readPreference: [Object] },
+     _emitter: EventEmitter { domain: null, _events: {}, _eventsCount: 0, _maxListeners: 50 },
+     _state: 2,
+     _connect_args: [ 'mongodb://localhost:27017/prototypeDB', [Object] ] },
+  helper: 
+   { toObjectID: [Function],
+     isObjectID: [Function],
+     id: 
+      { [Function: ObjectID]
+        index: 13448538,
+        createPk: [Function: createPk],
+        createFromTime: [Function: createFromTime],
+        createFromHexString: [Function: createFromHexString],
+        isValid: [Function: isValid],
+        ObjectID: [Circular],
+        ObjectId: [Circular] } },
+  name: 'vindetscollection',
+  col: 
+   SkinClass {
+     _construct_args: [],
+     _native: null,
+     _emitter: 
+      EventEmitter {
+        domain: null,
+        _events: {},
+        _eventsCount: 0,
+        _maxListeners: Infinity },
+     _state: 0,
+     _skin_db: 
+      SkinClass {
+        _construct_args: [],
+        _native: [Object],
+        _emitter: [Object],
+        _state: 2,
+        _connect_args: [Object] },
+     _collection_args: [ 'vindetscollection', undefined ],
+     id: 
+      { [Function: ObjectID]
+        index: 13448538,
+        createPk: [Function: createPk],
+        createFromTime: [Function: createFromTime],
+        createFromHexString: [Function: createFromHexString],
+        isValid: [Function: isValid],
+        ObjectID: [Circular],
+        ObjectId: [Circular] },
+     emitter: 
+      EventEmitter {
+        domain: null,
+        _events: {},
+        _eventsCount: 0,
+        _maxListeners: Infinity } },
+  options: {} }
+[2016-09-29 17:12:35.506] [TRACE] app - Collection {
+  manager: 
+   Manager {
+     driver: 
+      SkinClass {
+        _construct_args: [],
+        _native: [Object],
+        _emitter: [Object],
+        _state: 2,
+        _connect_args: [Object] },
+     helper: { toObjectID: [Function], isObjectID: [Function], id: [Object] },
+     collections: { vindetscollection: [Object], campdetcollection: [Circular] },
+     options: { safe: true } },
+  driver: 
+   SkinClass {
+     _construct_args: [],
+     _native: 
+      Db {
+        domain: null,
+        _events: {},
+        _eventsCount: 0,
+        _maxListeners: undefined,
+        databaseName: 'prototypeDB',
+        serverConfig: [Object],
+        options: [Object],
+        _applicationClosed: false,
+        slaveOk: false,
+        bufferMaxEntries: -1,
+        native_parser: true,
+        bsonLib: [Object],
+        bson: [Object],
+        bson_deserializer: [Object],
+        bson_serializer: [Object],
+        _state: 'connected',
+        pkFactory: [Object],
+        forceServerObjectId: false,
+        safe: false,
+        notReplied: {},
+        isInitializing: true,
+        openCalled: true,
+        commands: [],
+        logger: [Object],
+        tag: 1475149328465,
+        eventHandlers: [Object],
+        serializeFunctions: false,
+        raw: false,
+        recordQueryStats: false,
+        retryMiliSeconds: 1000,
+        numberOfRetries: 60,
+        readPreference: [Object] },
+     _emitter: EventEmitter { domain: null, _events: {}, _eventsCount: 0, _maxListeners: 50 },
+     _state: 2,
+     _connect_args: [ 'mongodb://localhost:27017/prototypeDB', [Object] ] },
+  helper: 
+   { toObjectID: [Function],
+     isObjectID: [Function],
+     id: 
+      { [Function: ObjectID]
+        index: 13448538,
+        createPk: [Function: createPk],
+        createFromTime: [Function: createFromTime],
+        createFromHexString: [Function: createFromHexString],
+        isValid: [Function: isValid],
+        ObjectID: [Circular],
+        ObjectId: [Circular] } },
+  name: 'campdetcollection',
+  col: 
+   SkinClass {
+     _construct_args: [],
+     _native: null,
+     _emitter: 
+      EventEmitter {
+        domain: null,
+        _events: {},
+        _eventsCount: 0,
+        _maxListeners: Infinity },
+     _state: 0,
+     _skin_db: 
+      SkinClass {
+        _construct_args: [],
+        _native: [Object],
+        _emitter: [Object],
+        _state: 2,
+        _connect_args: [Object] },
+     _collection_args: [ 'campdetcollection', undefined ],
+     id: 
+      { [Function: ObjectID]
+        index: 13448538,
+        createPk: [Function: createPk],
+        createFromTime: [Function: createFromTime],
+        createFromHexString: [Function: createFromHexString],
+        isValid: [Function: isValid],
+        ObjectID: [Circular],
+        ObjectId: [Circular] },
+     emitter: 
+      EventEmitter {
+        domain: null,
+        _events: {},
+        _eventsCount: 0,
+        _maxListeners: Infinity } },
+  options: {} }
+[2016-09-29 17:12:49.349] [TRACE] app - in getSelCampDetails
+[2016-09-29 17:12:49.349] [TRACE] app - Entered vinid is CAMPAIGNDOBJ00021
+[2016-09-29 17:12:56.153] [TRACE] app - in getSelVinDetails
+[2016-09-29 17:12:56.153] [TRACE] app - Entered campid is RX8
+[2016-09-29 17:13:02.298] [TRACE] app - in getSelVinDetails
+[2016-09-29 17:13:02.298] [TRACE] app - Entered campid is RT8
+[2016-09-29 17:13:07.085] [TRACE] app - in getSelVinDetails
+[2016-09-29 17:13:07.085] [TRACE] app - Entered campid is RA8
+[2016-09-29 17:13:10.919] [TRACE] app - in getSelVinDetails
+[2016-09-29 17:13:10.920] [TRACE] app - Entered campid is RB8

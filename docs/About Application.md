@@ -1,3 +1,5 @@
+# About the Application
+
 ### Running the app
 
 Runs like a typical express app:
