@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <base href="/">
+    <title>Vin Camp Application</title>
+    <link rel="stylesheet" href="/css/app.css">
+  </head>
+  <body>
+    <h3> Campaign Details Page</h3>
+  
+<label for="vinid">Enter Vin Id: </label>
+<input id="inputVinId" ng-model="form.vinid" name="vinid">
+
+  <button id="btnSubmit" ng-click="getCampDetails()">Get Campaign Details</button>
+  <div ng-controller="CampDetCtrl"></div>
+  <table CampaignDetailsTable>
+    <thead>
+      <th>CAMPAIGN_TYPE_NO</th>
+      <th>CAMPAIGN_ID</th>
+      <th>CAMPAIGN_NAME</th>
+      <th>VIN_ID</th>
+      <th>RESTRICTED_CAMPAIGN</th>
+    </thead>
+    <tbody ng-repeat="campdet in selCampDetails track by $index">
+      <tr>
+        <td>{{campdet.CAMPAIGN_TYPE_NO}}</td>
+        <td>{{campdet.CAMPAIGN_ID}}</td>
+        <td>{{campdet.CAMPAIGN_NAME}}</td>
+        <td>{{campdet.VIN_ID}}</td>
+        <td>{{campdet.RESTRICTED_CAMPAIGN}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>

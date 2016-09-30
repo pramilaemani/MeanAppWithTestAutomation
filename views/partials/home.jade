@@ -1,9 +1,16 @@
-h3 VIN_ID
-div(ng-repeat='vindet in allVinDetails track by $index')
-  
-  div {{vindet.VIN_ID}}
+h3#vindets VIN Details
 
-h3 CAMPAIGN_ID
-div(ng-repeat='campdet in allCampDetails track by $index')
-  
-  div {{campdet.CAMPAIGN_ID}}  
+table#VIN_Details(VIN_Details)
+	thead
+		th VIN_ID
+	tbody(ng-repeat='vindet in allVinDetails track by $index')
+		tr 
+			td {{vindet.VIN_ID}}
+h3#campdets CAMPAIGN Details
+
+table#CAMPAIGN_Details(CAMPAIGN_Details)
+	thead
+		th CAMPAIGN_ID
+	tbody(ng-repeat='campdet in allCampDetails track by $index')
+		tr
+			td {{campdet.CAMPAIGN_ID}}  

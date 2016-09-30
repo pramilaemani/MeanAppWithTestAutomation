@@ -30,7 +30,6 @@ app.set('views', __dirname + '/views');
 app.set('view engine', 'jade');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
 // Make db accessible to our router
 app.use(function(req,res,next){
     req.db = db;

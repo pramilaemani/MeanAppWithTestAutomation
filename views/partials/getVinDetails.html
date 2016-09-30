@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+  <head>
+    <base href="/">
+    <title>Vin Camp Application</title>
+    <link rel="stylesheet" href="/css/app.css">
+  </head>
+  <body>
+    <h3>Vin Details Page</h3>
+  
+<label for="campid">Enter Campaign Id: </label>
+<input ng-model="form.campid" name="campid">
+
+  <button id="btnSubmit" ng-click="getVinDetails()">Get Vin Details</button>
+  <div ng-controller="VinDetCtrl"></div>
+  <table VinDetailsTable>
+    <thead>
+      <th>VIN_ID</th>
+      <th>CAMPAIGN_ID</th>
+      <th>MODEL_ID</th>
+      <th>VIN_CAMPAIGN_STATUS        </th>
+    </thead>
+    <tbody ng-repeat="vindet in selVinDetails track by $index">
+      <tr>
+        <td>{{vindet.VIN_ID}}</td>
+        <td>{{vindet.CAMPAIGN_ID}}</td>
+        <td>{{vindet.MODEL_ID}}</td>
+        <td>{{vindet.VIN_CAMPAIGN_STATUS}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>
