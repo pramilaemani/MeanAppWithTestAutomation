@@ -49,4 +49,21 @@ For Protractor to run, it needs following to be installed
 - Selenium standalone server
 
 #### Installation:
-- 
+The below command in the root project folder, installs both webdriver-manager and protractor command line tools
+
+- npm install protractor
+
+  Web-driver manager is a helper tool which will easily get instance of a Selenium Server running. Below commands are used to run the server and  download necessary binaries.
+  webdriver-manager update: it updates the driver manager
+  webdriver-manager start: starts the Selenium server
+  
+Running the test cases:
+Make sure 
+- MongoDB is running
+- app server is running
+- Selenium server instanace is running
+ and then navigate to the test folder from the command promp and run the following command
+ 
+ protractor conf.js 
+ 
+ This will automatically run the test cases from the configured browser.
